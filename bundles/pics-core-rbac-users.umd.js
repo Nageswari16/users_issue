@@ -1327,8 +1327,6 @@
                 _this.cancel(true);
                 _this.alertService.success('User deleted successfully');
                 $('#Deleteuser').modal('hide');
-                _this.userForm.controls['username'].disable();
-                _this.userForm.controls['email'].disable();
                 _this.getUserList();
             }, function (_err) { return _this.alertService.error('Failed to delete User'); });
         };
@@ -1421,6 +1419,8 @@
             this.imageInformation = '';
             this.imageData = '';
             this.uploadedFile = '';
+            this.userForm.controls['username'].disable();
+            this.userForm.controls['email'].disable();
         };
         UsersComponent.prototype.validateImage = function (file) {
             var fileSize = Number(file[0].size) / 1024;

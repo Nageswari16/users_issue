@@ -818,8 +818,6 @@ class UsersComponent {
             this.cancel(true);
             this.alertService.success('User deleted successfully');
             $('#Deleteuser').modal('hide');
-            this.userForm.controls['username'].disable();
-            this.userForm.controls['email'].disable();
             this.getUserList();
         }, (_err) => this.alertService.error('Failed to delete User'));
     }
@@ -910,6 +908,8 @@ class UsersComponent {
         this.imageInformation = '';
         this.imageData = '';
         this.uploadedFile = '';
+        this.userForm.controls['username'].disable();
+        this.userForm.controls['email'].disable();
     }
     validateImage(file) {
         const fileSize = Number(file[0].size) / 1024;
